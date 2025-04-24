@@ -14,17 +14,20 @@ void diagonalE(int matriz[][10], int tamanho){
     }
 }
 
-void diagonalD(int matriz[][10], int tamanho){
-    for(int i = 10; i > 0; i--){
-        for(int j = 10;j > 0; j--){
-            if(i + j == 9 && tamanho < 3){
+void diagonalD(int matriz[][10]){
+    int contador = 0;
+    while (contador < 3){
+        for(int i = 0; i < 10; i++){
+            int j = 10 - 1 - i;
+            if (contador < 3) {
                 matriz[i][j] = 3;
-                tamanho + 1;
-            }
+                contador++;}
         }
         
     }
 }
+
+
 
 int main() {
     int tamanho = 3;
@@ -42,7 +45,7 @@ int main() {
     matriz[8][3]= 3;
     
     diagonalE(matriz, tamanho);
-    diagonalD(matriz, tamanho2);
+    diagonalD(matriz);
 
     for(int n = 0; n < 11; n++){
         printf("%c ",letras[n]);
